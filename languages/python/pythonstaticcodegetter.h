@@ -1,9 +1,9 @@
-#ifndef CPPSTATICCODEGETTER_H
-#define CPPSTATICCODEGETTER_H
+#ifndef PYTHONSTATICCODEGETTER_H
+#define PYTHONSTATICCODEGETTER_H
 #include "gengen/staticcodegetter.h"
-class CppStaticCodeGetter : public StaticCodeGetter {
+class PythonStaticCodeGetter : public StaticCodeGetter {
 public:
-    CppStaticCodeGetter();
+    PythonStaticCodeGetter();
     std::string GetBeforePreHeader();
     std::string GetAfterPreHeader();
     std::string GetAfterHeader();
@@ -13,4 +13,4 @@ public:
     unsigned int GetStartingIndent();
 };
 
-#endif // CPPSTATICCODEGETTER_H
+#endif // PYTHONSTATICCODEGETTER_H

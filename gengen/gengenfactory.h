@@ -4,10 +4,12 @@
 // CPP Support
 #include "languages/cpp/cpplinecodegenerator.h"
 #include "languages/cpp/cppstaticcodegetter.h"
+#include "languages/python/pythonlinecodegenerator.h"
+#include "languages/python/pythonstaticcodegetter.h"
 
 enum GenGenLanguages {
     GENGENLANG_CPP,
-    GENGENLANG_PYTHON3,
+    GENGENLANG_PYTHON,
 };
 
 class GenGenFactory {

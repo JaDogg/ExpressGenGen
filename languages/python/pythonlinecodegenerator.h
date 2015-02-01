@@ -1,7 +1,8 @@
-#ifndef CPPLINECODEGENERATOR_H
-#define CPPLINECODEGENERATOR_H
+#ifndef PYTHONLINECODEGENERATOR_H
+#define PYTHONLINECODEGENERATOR_H
 #include "gengen/linecodegenerator.h"
-class CppLineCodeGenerator : public LineCodeGenerator {
+#include <boost/algorithm/string/replace.hpp>
+class PythonLineCodeGenerator : public LineCodeGenerator {
 public:
     void StartLine();
     void EndLine();
@@ -15,4 +16,4 @@ private:
     std::string mLineCode;
 };
 
-#endif // CPPLINECODEGENERATOR_H
+#endif // PYTHONLINECODEGENERATOR_H

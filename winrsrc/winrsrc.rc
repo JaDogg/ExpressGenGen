@@ -1,0 +1,35 @@
+#define MANIFEST 24
+#define IDR_VERSION1 1
+#define IDR_XPMANIFEST1 1
+
+IDR_VERSION1 VERSIONINFO
+FILEVERSION 1,0,0,0
+PRODUCTVERSION 1,0,0,0
+FILEOS 0x00000004
+FILETYPE 0x00000000
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "FFFF0000"
+    BEGIN
+      VALUE "FileVersion", "1.0.0.0\0"
+      VALUE "ProductVersion", "1.0.0.0\0"
+      VALUE "CompanyName", "Bhathiya\0"
+      VALUE "FileDescription", "GenGen\0"
+      VALUE "InternalName", "GenGen\0"
+      VALUE "LegalCopyright", "GenGen\0"
+      VALUE "LegalTrademarks", "GenGen\0"
+      VALUE "OriginalFilename", "GenGen.exe\0"
+      VALUE "ProductName", "GenGen\0"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0xFFFF, 0x0000
+  END
+END
+
+IDR_XPMANIFEST1 MANIFEST "xpmanifest.xml"
+
+100 ICON DISCARDABLE "Icon.ico"
+

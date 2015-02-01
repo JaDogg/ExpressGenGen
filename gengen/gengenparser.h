@@ -31,7 +31,10 @@ static std::string TOKEN_LINEDUMP("$$$");
 static std::string TOKEN_INDENTNEXT("$$>");
 static std::string TOKEN_INDENTEQUAL("$=>");
 static std::string TOKEN_INDENTDEPTHOFTWO("$>>");
-static std::string TOKEN_UNINDENT("<$$");
+
+static std::string TOKEN_UNINDENTNEXT("<$$");
+static std::string TOKEN_UNINDENTEQUAL("<=$");
+static std::string TOKEN_UNINDENTDEPTHOFTWO("<<$");
 
 static std::string TOKEN_INLINE_START("{%%");
 static std::string TOKEN_INLINE_END("%%}");

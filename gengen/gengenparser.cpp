@@ -119,6 +119,44 @@ void GenGenParser::Parse()
             mAppender.AppendToCodeBody(mLinecode->CalculateIndent(indentCount)
                                        + line.substr(TOKEN_LINEDUMP.length()));
             continue;
+        } else if (this->IsStrIn(line, 0, TOKEN_INDENTNEXT)) {
+            mAppender.AppendToCodeBody(mLinecode->CalculateIndent(indentCount++)
+                                       + line.substr(TOKEN_INDENTNEXT.length()));
+            continue;
+        } else if (this->IsStrIn(line, 0, TOKEN_INDENTEQUAL)) {
+            mAppender.AppendToCodeBody(mLinecode->CalculateIndent(++indentCount)
+                                       + line.substr(TOKEN_INDENTEQUAL.length()));
+            continue;
+        } else if (this->IsStrIn(line, 0, TOKEN_INDENTDEPTHOFTWO)) {
+            mAppender.AppendToCodeBody(mLinecode->CalculateIndent(++indentCount)
+                                       + line.substr(TOKEN_INDENTDEPTHOFTWO.length()));
+            indentCount++;
+            continue;
+        } else if (this->IsStrIn(line, 0, TOKEN_UNINDENTNEXT)) {
+            mAppender.AppendToCodeBody(mLinecode->CalculateIndent(indentCount)
+                                       + line.substr(TOKEN_UNINDENTNEXT.length()));
+            if (indentCount > 0) {
+                --indentCount;
+            }
+            continue;
+        } else if (this->IsStrIn(line, 0, TOKEN_UNINDENTEQUAL)) {
+            if (indentCount > 0) {
+                --indentCount;
+            }
+            mAppender.AppendToCodeBody(mLinecode->CalculateIndent(indentCount)
+                                       + line.substr(TOKEN_UNINDENTEQUAL.length()));
+
+            continue;
+        } else if (this->IsStrIn(line, 0, TOKEN_UNINDENTDEPTHOFTWO)) {
+            if (indentCount > 0) {
+                --indentCount;
+            }
+            mAppender.AppendToCodeBody(mLinecode->CalculateIndent(indentCount)
+                                       + line.substr(TOKEN_UNINDENTDEPTHOFTWO.length()));
+            if (indentCount > 0) {
+                --indentCount;
+            }
+            continue;
         }
         this->LineModeParse(line, line.length());
     }
