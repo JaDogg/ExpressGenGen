@@ -26,3 +26,6 @@
 *.exe
 *.out
 *.app
+
+# Qt Based
+GenGen.pro.user
