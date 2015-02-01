@@ -7,14 +7,14 @@
 #include "languages/python/pythonlinecodegenerator.h"
 #include "languages/python/pythonstaticcodegetter.h"
 
-enum GenGenLanguages {
+enum GenGenLanguage {
     GENGENLANG_CPP,
     GENGENLANG_PYTHON,
 };
 
 class GenGenFactory {
 public:
-    GenGenParser* GetGenGenParser(GenGenLanguages language);
+    GenGenParser* GetGenGenParser(GenGenLanguage language);
 };
 
 #endif // GENGENFACTORY_H

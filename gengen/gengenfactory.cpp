@@ -1,6 +1,6 @@
 #include "gengenfactory.h"
 
-GenGenParser* GenGenFactory::GetGenGenParser(GenGenLanguages language)
+GenGenParser* GenGenFactory::GetGenGenParser(GenGenLanguage language)
 {
     switch (language) {
     case GENGENLANG_CPP:
