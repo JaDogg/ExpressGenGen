@@ -11,7 +11,9 @@ SOURCES += main.cpp \
     languages/cpp/cppstaticcodegetter.cpp \
     languages/cpp/cpplinecodegenerator.cpp \
     languages/python/pythonstaticcodegetter.cpp \
-    languages/python/pythonlinecodegenerator.cpp
+    languages/python/pythonlinecodegenerator.cpp \
+    languages/web/webstaticcodegetter.cpp \
+    languages/web/weblinecodegenerator.cpp
 
 include(deployment.pri)
 include(boost.pri)
@@ -27,6 +29,9 @@ HEADERS += \
     languages/cpp/cppstaticcodegetter.h \
     languages/cpp/cpplinecodegenerator.h \
     languages/python/pythonstaticcodegetter.h \
-    languages/python/pythonlinecodegenerator.h
+    languages/python/pythonlinecodegenerator.h \
+    languages/web/webstaticcodegetter.h \
+    languages/web/weblinecodegenerator.h
+
 
 RC_FILE = winrsrc/winrsrc.rc

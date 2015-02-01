@@ -10,7 +10,7 @@ void PrintHelp()
     std::cout << "GenGen --help : print help" << std::endl;
     std::cout << "---------------------------------" << std::endl;
     std::cout << "Meta Languages:" << std::endl;
-    std::cout << "cpp, python" << std::endl;
+    std::cout << "cpp, python, web" << std::endl;
 }
 
 int main(int argc, char** argv)
@@ -25,6 +25,8 @@ int main(int argc, char** argv)
             lang = GENGENLANG_CPP;
         } else if (boost::equals(argv[1], "python")) {
             lang = GENGENLANG_PYTHON;
+        } else if (boost::equals(argv[1], "web")) {
+            lang = GENGENLANG_WEB;
         } else {
             std::cerr << "Language Not Found." << std::endl;
             PrintHelp();
