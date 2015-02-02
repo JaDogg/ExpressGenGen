@@ -1,4 +1,4 @@
-# GenGen
-GenGen a Code Generator Generator
+# ExpressGenGen
+ExpressGenGen an Express Code Generator Generator
 
 ![How It Works](http://lookpic.com/O/i2/1887/XPbfhaFj.png "How It Works")

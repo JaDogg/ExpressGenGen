@@ -29,3 +29,5 @@
 
 # Qt Based
 GenGen.pro.user
+
+build/
