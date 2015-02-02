@@ -4,7 +4,9 @@ ExpressGenGen an Express Code Generator Generator
 ### Compiling
 
 * CMakeLists.txt - to use with cmake
+
 #### For Compiling Under MinGW
+
 ```
 mkdir build 
 cd build 
