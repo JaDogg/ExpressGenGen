@@ -3,10 +3,10 @@
   <assemblyIdentity
       version="1.0.0.0"
       processorArchitecture="X86"
-      name="Bhathiya.gen.gen"
+      name="Bhathiya.expressgen.gen"
       type="win32"
   />
-  <description>GenGen</description>
+  <description>ExpressGenGen</description>
 
   <!-- Enable Windows XP and higher themes with common controls -->
   <dependency>

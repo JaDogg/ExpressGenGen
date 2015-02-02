@@ -15,12 +15,12 @@ BEGIN
       VALUE "FileVersion", "1.0.0.0\0"
       VALUE "ProductVersion", "1.0.0.0\0"
       VALUE "CompanyName", "Bhathiya\0"
-      VALUE "FileDescription", "GenGen\0"
-      VALUE "InternalName", "GenGen\0"
-      VALUE "LegalCopyright", "GenGen\0"
-      VALUE "LegalTrademarks", "GenGen\0"
-      VALUE "OriginalFilename", "GenGen.exe\0"
-      VALUE "ProductName", "GenGen\0"
+      VALUE "FileDescription", "ExpressGenGen\0"
+      VALUE "InternalName", "ExpressGenGen\0"
+      VALUE "LegalCopyright", "ExpressGenGen\0"
+      VALUE "LegalTrademarks", "ExpressGenGen\0"
+      VALUE "OriginalFilename", "ExpressGenGen.exe\0"
+      VALUE "ProductName", "ExpressGenGen\0"
     END
   END
   BLOCK "VarFileInfo"
