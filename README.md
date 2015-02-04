@@ -39,13 +39,16 @@ Use Qt creator and compile it
 ## How It Works ?
 ![How It Works](http://lookpic.com/O/i2/1887/XPbfhaFj.png "How It Works")
 
-## Usage
+## Information
 
 * ExpressGenGen's binary is `xgengen` or `xgengen.exe`
-
 * First get it built or use a prebuilt version
-
 * ExpressGenGen uses `STDIN` and `STDOUT` for communication
+
+## How do I execute xgengen ?
+
+* **Note** All `*nix` examples should work on Windows with minor modifications 
+* **Note** All Windows examples should work on `*nix` with minor modifications 
 
 ### Python output on `*nix`
 
@@ -55,7 +58,7 @@ chmod a+x gen.py
 ./gen.py > output.txt
 ```
 
-### Web output on windows
+### Web output on Windows
 
 ```
 type template.txt | xgengen.exe web > out.html
@@ -79,4 +82,10 @@ echo 'Hello ExpressGenGen using :=> "{$$_VERSION$$}"' | xgengen
 
 ```
 cat ./samples/lang_bash_CMakeLists.txt | xgengen bash | bash -
+```
+
+### Python Piped Execution on `*nix`
+
+```
+cat /samples/lang_python_Hello.txt | xgengen python | python
 ```
