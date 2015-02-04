@@ -75,7 +75,7 @@ echo 'Hello ExpressGenGen using :=> "{$$_VERSION$$}"' | xgengen
 ```
 (default is lua)
 
-## Bash Piped Execution
+### Bash Piped Execution on `*nix`
 
 ```
 cat ./samples/lang_bash_CMakeLists.txt | xgengen bash | bash -
