@@ -24,6 +24,8 @@ GenGenParser* GenGenFactory::GetParser(GenGenLanguage language)
         return new GenGenParser(new WebLineCodeGenerator(), new WebStaticCodeGetter(), new PostParser());
     case GENGENLANG_LUA:
         return new GenGenParser(new LuaLineCodeGenerator(), new LuaStaticCodeGetter(), new LuaPostParser());
+    case GENGENLANG_LUACODE:
+        return new GenGenParser(new LuaLineCodeGenerator(), new LuaStaticCodeGetter(), new PostParser());
     case GENGENLANG_BASH:
         return new GenGenParser(new BashLineCodeGenerator(), new BashStaticCodeGetter(), new PostParser());
     default:
