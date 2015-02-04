@@ -1,7 +1,7 @@
 #ifndef GENGENFACTORY_H
 #define GENGENFACTORY_H
 #include "gengenparser.h"
-// CPP Support
+#include "postparser.h"
 #include "languages/cpp/cpplinecodegenerator.h"
 #include "languages/cpp/cppstaticcodegetter.h"
 #include "languages/python/pythonlinecodegenerator.h"

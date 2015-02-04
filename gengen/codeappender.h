@@ -1,7 +1,6 @@
 #ifndef CODEAPPENDER_H
 #define CODEAPPENDER_H
-#include <sstream>
-
+#include <string>
 class CodeAppender {
 private:
     std::string mStdStrPreHeader;
@@ -11,16 +10,16 @@ private:
     std::string mStdStrPostFooter;
 
 public:
-    void AppendToPreHeader(const std::string& code);
-    std::string GetPreHeader();
-    void AppendToHeader(const std::string& code);
-    std::string GetHeader();
-    void AppendToCodeBody(const std::string& code);
-    std::string GetCodeBody();
-    void AppendToFooter(const std::string& code);
-    std::string GetFooter();
-    void AppendToPostFooter(const std::string& code);
-    std::string GetPostFooter();
+    virtual void AppendToPreHeader(const std::string& code);
+    virtual std::string GetPreHeader();
+    virtual void AppendToHeader(const std::string& code);
+    virtual std::string GetHeader();
+    virtual void AppendToCodeBody(const std::string& code);
+    virtual std::string GetCodeBody();
+    virtual void AppendToFooter(const std::string& code);
+    virtual std::string GetFooter();
+    virtual void AppendToPostFooter(const std::string& code);
+    virtual std::string GetPostFooter();
 };
 
 #endif // CODEAPPENDER_H

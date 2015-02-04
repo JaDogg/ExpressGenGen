@@ -3,6 +3,8 @@ CONFIG += console
 CONFIG -= app_bundle
 CONFIG -= qt
 
+QMAKE_CXXFLAGS += -std=c++11
+
 SOURCES += main.cpp \
     gengen/gengenparser.cpp \
     gengen/codeappender.cpp \
@@ -13,7 +15,8 @@ SOURCES += main.cpp \
     languages/python/pythonstaticcodegetter.cpp \
     languages/python/pythonlinecodegenerator.cpp \
     languages/web/webstaticcodegetter.cpp \
-    languages/web/weblinecodegenerator.cpp
+    languages/web/weblinecodegenerator.cpp \
+    gengen/postparser.cpp
 
 include(deployment.pri)
 include(boost.pri)
@@ -31,7 +34,8 @@ HEADERS += \
     languages/python/pythonstaticcodegetter.h \
     languages/python/pythonlinecodegenerator.h \
     languages/web/webstaticcodegetter.h \
-    languages/web/weblinecodegenerator.h
+    languages/web/weblinecodegenerator.h \
+    gengen/postparser.h
 
 
 RC_FILE = winrsrc/winrsrc.rc

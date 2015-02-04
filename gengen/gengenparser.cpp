@@ -52,12 +52,15 @@ void GenGenParser::LineModeParse(std::string& line, int size)
     mAppender.AppendToCodeBody(mLinecode->CalculateIndent(indentCount) + mLinecode->GetGeneratedCode());
 }
 
-GenGenParser::GenGenParser(LineCodeGenerator* linecode, StaticCodeGetter* staticGetter)
+GenGenParser::GenGenParser(LineCodeGenerator *linecode, StaticCodeGetter *staticGetter, PostParser *postParser)
 {
     mLinecode = linecode;
     mStaticGetter = staticGetter;
+    mPostParser = postParser;
     indentCount = staticGetter->GetStartingIndent();
+
 }
+
 void GenGenParser::Parse()
 {
     std::string line;
@@ -161,8 +164,8 @@ void GenGenParser::Parse()
         this->LineModeParse(line, line.length());
     }
 }
-std::string GenGenParser::GetCode()
+void GenGenParser::PostParse()
 {
     CodeJoiner joiner(mAppender, mStaticGetter);
-    return joiner.GetCode();
+    mPostParser->PostParse(joiner.GetCode());
 }

@@ -10,7 +10,7 @@ private:
 
 public:
     CodeJoiner(CodeAppender codeAppender, StaticCodeGetter* staticCodeGetter);
-    std::string GetCode();
+    virtual std::string GetCode();
 };
 
 #endif // CODEJOINER_H

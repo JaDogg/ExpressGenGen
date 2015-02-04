@@ -10,7 +10,8 @@ set(sources
   gengen/codeappender.cpp                     
   gengen/codejoiner.cpp                       
   gengen/gengenfactory.cpp                    
-  gengen/gengenparser.cpp                     
+  gengen/gengenparser.cpp
+  gengen/postparser.cpp  
   languages/cpp/cpplinecodegenerator.cpp      
   languages/cpp/cppstaticcodegetter.cpp       
   languages/python/pythonlinecodegenerator.cpp

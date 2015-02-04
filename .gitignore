@@ -28,6 +28,8 @@
 *.app
 
 # Qt Based
-GenGen.pro.user
-
+xgengen.pro.user
+# CMAKE
 build/
+#CPP Check
+xgengen.cppcheck

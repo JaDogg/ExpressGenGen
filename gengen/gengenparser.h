@@ -1,12 +1,12 @@
 #ifndef GENGENPARSER_H
 #define GENGENPARSER_H
-#include <iostream>
 #include <string>
 #include <boost/algorithm/string.hpp>
 #include "linecodegenerator.h"
 #include "staticcodegetter.h"
 #include "codeappender.h"
 #include "codejoiner.h"
+#include "postparser.h"
 
 enum SingleLineParseMode {
     LINEMODE_CODE,
@@ -36,8 +36,8 @@ static std::string TOKEN_UNINDENTNEXT("<$$");
 static std::string TOKEN_UNINDENTEQUAL("<=$");
 static std::string TOKEN_UNINDENTDEPTHOFTWO("<<$");
 
-static std::string TOKEN_INLINE_START("{%%");
-static std::string TOKEN_INLINE_END("%%}");
+static std::string TOKEN_INLINE_START("{$$");
+static std::string TOKEN_INLINE_END("$$}");
 
 static std::string TOKEN_PREHEADER("$$PREHEADER");
 static std::string TOKEN_HEADER("$$HEADER");
@@ -50,15 +50,16 @@ class GenGenParser {
 private:
     LineCodeGenerator* mLinecode;
     StaticCodeGetter* mStaticGetter;
-    unsigned int indentCount;
+    PostParser* mPostParser;
     CodeAppender mAppender;
+    unsigned int indentCount;
     bool IsStrIn(std::string& str, int pos, std::string& checkStr);
     void LineModeParse(std::string& line, int size);
 
 public:
-    GenGenParser(LineCodeGenerator* linecode, StaticCodeGetter* staticGetter);
+    GenGenParser(LineCodeGenerator* linecode, StaticCodeGetter* staticGetter, PostParser* postParser);
     void Parse();
-    std::string GetCode();
+    void PostParse();
 };
 
 #endif // GENGENPARSER_H
