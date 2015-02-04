@@ -6,7 +6,8 @@ enum GenGenLanguage {
     GENGENLANG_CPP,
     GENGENLANG_PYTHON,
     GENGENLANG_WEB,
-    GENGENLANG_LUA
+    GENGENLANG_LUA,
+    GENGENLANG_BASH
 };
 
 class GenGenFactory {

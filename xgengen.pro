@@ -19,8 +19,9 @@ SOURCES += main.cpp \
     languages/web/weblinecodegenerator.cpp \
     languages/lua/luastaticcodegetter.cpp \
     languages/lua/lualinecodegenerator.cpp \
-    languages/lua/luapostparser.cpp
-
+    languages/lua/luapostparser.cpp \
+    languages/bash/bashstaticcodegetter.cpp \
+    languages/bash/bashlinecodegenerator.cpp
 
 include(deployment.pri)
 include(boost.pri)
@@ -43,8 +44,9 @@ HEADERS += \
     languages/web/weblinecodegenerator.h \
     languages/lua/luastaticcodegetter.h \
     languages/lua/lualinecodegenerator.h \
-    languages/lua/luapostparser.h
-
+    languages/lua/luapostparser.h \
+    languages/bash/bashstaticcodegetter.h \
+    languages/bash/bashlinecodegenerator.h
 
 
 RC_FILE = winrsrc/winrsrc.rc

@@ -10,7 +10,7 @@ void PrintHelp()
     std::cout << "xgengen --help : print help" << std::endl;
     std::cout << "---------------------------------" << std::endl;
     std::cout << "Meta Languages:" << std::endl;
-    std::cout << "cpp, python, web, lua" << std::endl;
+    std::cout << "cpp, python, web, lua, bash" << std::endl;
 }
 
 int main(int argc, char** argv)
@@ -29,7 +29,9 @@ int main(int argc, char** argv)
             lang = GENGENLANG_WEB;
         } else if (boost::equals(argv[1], "lua")) {
             lang = GENGENLANG_LUA;
-        } else {
+        } else if (boost::equals(argv[1], "bash")) {
+            lang = GENGENLANG_BASH;
+        }else {
             std::cerr << "Language Not Found." << std::endl;
             PrintHelp();
             return 1;

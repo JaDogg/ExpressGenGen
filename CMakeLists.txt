@@ -12,6 +12,8 @@ set(sources
   gengen/gengenfactory.cpp
   gengen/gengenparser.cpp
   gengen/postparser.cpp
+  languages/bash/bashlinecodegenerator.cpp
+  languages/bash/bashstaticcodegetter.cpp
   languages/cpp/cpplinecodegenerator.cpp
   languages/cpp/cppstaticcodegetter.cpp
   languages/lua/lualinecodegenerator.cpp
