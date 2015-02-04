@@ -14,7 +14,7 @@ void PrintHelp()
     std::cout << "python         " << std::endl;
     std::cout << "web            " << std::endl;
     std::cout << "lua (default, self executes)" << std::endl;
-    std::cout << "lua-code (doesn't self execute')" << std::endl;
+    std::cout << "lua-code (doesn't self execute)" << std::endl;
     std::cout << "bash           " << std::endl;
 }
 
