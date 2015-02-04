@@ -9,7 +9,7 @@ ExpressGenGen an Express Code Generator Generator
 * LUA 5.3.0
 * `LUA_ROOT` set to `<lua_extracted>\src`, same path should also contain `liblua.a`
 
-## Installing Requirements
+#### Installing Requirements
 
 ```
 wget http://sourceforge.net/projects/boost/files/boost/1.57.0/boost_1_57_0.tar.gz/download -O boost_1_57_0.tar.gz
