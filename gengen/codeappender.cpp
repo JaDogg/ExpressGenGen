@@ -1,18 +1,8 @@
 #include "codeappender.h"
 
-void CodeAppender::AppendToPreHeader(const std::string& code)
-{
-    mStdStrPreHeader += (code + "\n");
-}
-
 std::string CodeAppender::GetPreHeader()
 {
     return mStdStrPreHeader;
-}
-
-void CodeAppender::AppendToHeader(const std::string& code)
-{
-    mStdStrHeader += (code + "\n");
 }
 
 std::string CodeAppender::GetHeader()
@@ -20,19 +10,9 @@ std::string CodeAppender::GetHeader()
     return mStdStrHeader;
 }
 
-void CodeAppender::AppendToCodeBody(const std::string& code)
-{
-    mStdStrCodeBody += (code + "\n");
-}
-
 std::string CodeAppender::GetCodeBody()
 {
     return mStdStrCodeBody;
-}
-
-void CodeAppender::AppendToFooter(const std::string& code)
-{
-    mStdStrFooter += (code + "\n");
 }
 
 std::string CodeAppender::GetFooter()
@@ -40,12 +20,28 @@ std::string CodeAppender::GetFooter()
     return mStdStrFooter;
 }
 
-void CodeAppender::AppendToPostFooter(const std::string& code)
-{
-    mStdStrPostFooter += (code + "\n");
-}
-
 std::string CodeAppender::GetPostFooter()
 {
     return mStdStrPostFooter;
+}
+
+void CodeAppender::Append(const std::string &code, BlockType blockType)
+{
+    switch (blockType) {
+    case BLOCK_PREHEADER:
+        this->mStdStrPreHeader += (code + "\n");
+        break;
+    case BLOCK_HEADER:
+        this->mStdStrHeader += (code + "\n");
+        break;
+    case BLOCK_FOOTER:
+        this->mStdStrFooter += (code + "\n");
+        break;
+    case BLOCK_POSTFOOTER:
+        this->mStdStrPostFooter += (code + "\n");
+        break;
+    case BLOCK_CODE:
+        this->mStdStrCodeBody += (code + "\n");
+        break;
+    }
 }

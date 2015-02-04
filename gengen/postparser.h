@@ -5,6 +5,7 @@
 class PostParser {
 public:
     virtual void PostParse(std::string code);
+    virtual ~PostParser(){}
 };
 
 #endif // POSTPARSER_H

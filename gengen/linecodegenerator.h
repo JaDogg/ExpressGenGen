@@ -11,5 +11,6 @@ public:
     virtual void WriteCode(const std::string& code) = 0;
     virtual std::string GetGeneratedCode() = 0;
     virtual std::string CalculateIndent(unsigned int amount) = 0;
+    virtual ~LineCodeGenerator(){}
 };
 #endif // LINECODEGENERATOR_H

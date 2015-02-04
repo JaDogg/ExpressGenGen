@@ -1,5 +1,20 @@
 #include "gengenparser.h"
 
+GenGenParser::GenGenParser(LineCodeGenerator* linecode, StaticCodeGetter* staticGetter, PostParser* postParser)
+{
+    mLinecode = linecode;
+    mStaticGetter = staticGetter;
+    mPostParser = postParser;
+    indentCount = staticGetter->GetStartingIndent();
+}
+
+GenGenParser::~GenGenParser()
+{
+    delete mLinecode;
+    delete mStaticGetter;
+    delete mPostParser;
+}
+
 bool GenGenParser::IsStrIn(std::string& str, int pos, std::string& checkStr)
 {
     int check_str_size = checkStr.length();
@@ -15,10 +30,37 @@ bool GenGenParser::IsStrIn(std::string& str, int pos, std::string& checkStr)
     return true;
 }
 
-void GenGenParser::LineModeParse(std::string& line, int size)
+void GenGenParser::IncreaseIndent(int count)
+{
+    indentCount += count;
+    if (indentCount < 0)
+        indentCount = 0;
+}
+
+bool GenGenParser::SingleLineModeParse(std::string& line)
+{
+    for (auto codeInSingleLineLogic : LST_CODE_IN_SINGLELINE) {
+        int incBefore;
+        int incAfter;
+        std::string relatedToken;
+        std::tie(incBefore, incAfter, relatedToken) = codeInSingleLineLogic;
+
+        if (this->IsStrIn(line, 0, relatedToken)) {
+            this->IncreaseIndent(incBefore);
+            mAppender.Append(mLinecode->CalculateIndent(indentCount)
+                             + line.substr(relatedToken.length()),
+                             BLOCK_CODE);
+            this->IncreaseIndent(incAfter);
+            return true;
+        }
+    }
+    return false;
+}
+
+void GenGenParser::InLineModeParse(std::string& line, int size)
 {
     std::string token("");
-    SingleLineParseMode mode = LINEMODE_CODE;
+    InLineParseMode mode = INLINE_CODE;
     mLinecode->StartLine();
     for (int i = 0; i < size; ++i) {
         if (this->IsStrIn(line, i, TOKEN_INLINE_START)) {
@@ -27,7 +69,7 @@ void GenGenParser::LineModeParse(std::string& line, int size)
                 mLinecode->WriteCodePrintingCode(token);
                 token.clear();
             }
-            mode = LINEMODE_TEMPLATE;
+            mode = INLINE_TEMPLATE;
             continue;
         } else if (this->IsStrIn(line, i, TOKEN_INLINE_END)) {
             i += 2;
@@ -35,12 +77,12 @@ void GenGenParser::LineModeParse(std::string& line, int size)
                 mLinecode->WriteCode(token);
                 token.clear();
             }
-            mode = LINEMODE_CODE;
+            mode = INLINE_CODE;
             continue;
         }
 
         char chr = line[i];
-        if (mode == LINEMODE_CODE) {
+        if (mode == INLINE_CODE) {
             mLinecode->EscapedAppend(token, chr);
         } else {
             token.push_back(chr);
@@ -49,119 +91,59 @@ void GenGenParser::LineModeParse(std::string& line, int size)
 
     mLinecode->WriteCodePrintingCode(token);
     mLinecode->EndLine();
-    mAppender.AppendToCodeBody(mLinecode->CalculateIndent(indentCount) + mLinecode->GetGeneratedCode());
-}
-
-GenGenParser::GenGenParser(LineCodeGenerator *linecode, StaticCodeGetter *staticGetter, PostParser *postParser)
-{
-    mLinecode = linecode;
-    mStaticGetter = staticGetter;
-    mPostParser = postParser;
-    indentCount = staticGetter->GetStartingIndent();
-
+    mAppender.Append(mLinecode->CalculateIndent(indentCount)
+                     + mLinecode->GetGeneratedCode(),
+                     BLOCK_CODE);
 }
 
 void GenGenParser::Parse()
 {
     std::string line;
-    BlockMode blockMode = BLOCKMODE_TEMPLATE;
+    BlockParseMode blockMode = BLOCKMODE_TEMPLATE;
     BlockType blockType = BLOCK_UNKNOWN;
+    bool gotoTop;
     while (std::getline(std::cin, line)) {
 
-        std::string trimmedLine = boost::trim_copy(line);
+        // SingleLineMode Parsing
+        if (this->SingleLineModeParse(line)) {
+            continue;
+        }
+
+        // -------------------------------------------
+        // BlockMode Parsing
+        std::string trimmedLine = boost::trim_right_copy(line);
+
         if (boost::equal(trimmedLine, TOKEN_ENDBLOCK)) {
             blockMode = BLOCKMODE_TEMPLATE;
             blockType = BLOCK_UNKNOWN;
             continue;
-        } else if (boost::equal(trimmedLine, TOKEN_PREHEADER)) {
-            blockMode = BLOCKMODE_CODE;
-            blockType = BLOCK_PREHEADER;
-            continue;
-        } else if (boost::equal(trimmedLine, TOKEN_HEADER)) {
-            blockMode = BLOCKMODE_CODE;
-            blockType = BLOCK_HEADER;
-            continue;
-        } else if (boost::equal(trimmedLine, TOKEN_FOOTER)) {
-            blockMode = BLOCKMODE_CODE;
-            blockType = BLOCK_FOOTER;
-            continue;
-        } else if (boost::equal(trimmedLine, TOKEN_POSTFOOTER)) {
-            blockMode = BLOCKMODE_CODE;
-            blockType = BLOCK_POSTFOOTER;
-            continue;
-        } else if (boost::equal(trimmedLine, TOKEN_CODEBLOCK)) {
-            blockMode = BLOCKMODE_CODE;
-            blockType = BLOCK_CODE;
+        }
+
+        gotoTop = false;
+        for (auto codeAsBlocksLogic : LST_CODE_AS_BLOCKS) {
+            std::string relatedToken;
+            BlockType curBlockType;
+            std::tie(relatedToken, curBlockType) = codeAsBlocksLogic;
+            if (boost::equal(trimmedLine, relatedToken)) {
+                blockMode = BLOCKMODE_CODE;
+                blockType = curBlockType;
+                gotoTop = true;
+                break;
+            }
+        }
+
+        if (gotoTop) {
             continue;
         }
 
         if (blockMode == BLOCKMODE_CODE) {
-            switch (blockType) {
-            case BLOCK_PREHEADER:
-                mAppender.AppendToPreHeader(line);
-                break;
-            case BLOCK_HEADER:
-                mAppender.AppendToHeader(line);
-                break;
-            case BLOCK_FOOTER:
-                mAppender.AppendToFooter(line);
-                break;
-            case BLOCK_POSTFOOTER:
-                mAppender.AppendToPostFooter(line);
-                break;
-            case BLOCK_CODE:
-                mAppender.AppendToCodeBody(line);
-                break;
-            default:
-                break;
-            }
+            mAppender.Append(line, blockType);
             continue;
         }
+        // -------------------------------------------
 
-        if (this->IsStrIn(line, 0, TOKEN_LINEDUMP)) {
-            mAppender.AppendToCodeBody(mLinecode->CalculateIndent(indentCount)
-                                       + line.substr(TOKEN_LINEDUMP.length()));
-            continue;
-        } else if (this->IsStrIn(line, 0, TOKEN_INDENTNEXT)) {
-            mAppender.AppendToCodeBody(mLinecode->CalculateIndent(indentCount++)
-                                       + line.substr(TOKEN_INDENTNEXT.length()));
-            continue;
-        } else if (this->IsStrIn(line, 0, TOKEN_INDENTEQUAL)) {
-            mAppender.AppendToCodeBody(mLinecode->CalculateIndent(++indentCount)
-                                       + line.substr(TOKEN_INDENTEQUAL.length()));
-            continue;
-        } else if (this->IsStrIn(line, 0, TOKEN_INDENTDEPTHOFTWO)) {
-            mAppender.AppendToCodeBody(mLinecode->CalculateIndent(++indentCount)
-                                       + line.substr(TOKEN_INDENTDEPTHOFTWO.length()));
-            indentCount++;
-            continue;
-        } else if (this->IsStrIn(line, 0, TOKEN_UNINDENTNEXT)) {
-            mAppender.AppendToCodeBody(mLinecode->CalculateIndent(indentCount)
-                                       + line.substr(TOKEN_UNINDENTNEXT.length()));
-            if (indentCount > 0) {
-                --indentCount;
-            }
-            continue;
-        } else if (this->IsStrIn(line, 0, TOKEN_UNINDENTEQUAL)) {
-            if (indentCount > 0) {
-                --indentCount;
-            }
-            mAppender.AppendToCodeBody(mLinecode->CalculateIndent(indentCount)
-                                       + line.substr(TOKEN_UNINDENTEQUAL.length()));
-
-            continue;
-        } else if (this->IsStrIn(line, 0, TOKEN_UNINDENTDEPTHOFTWO)) {
-            if (indentCount > 0) {
-                --indentCount;
-            }
-            mAppender.AppendToCodeBody(mLinecode->CalculateIndent(indentCount)
-                                       + line.substr(TOKEN_UNINDENTDEPTHOFTWO.length()));
-            if (indentCount > 0) {
-                --indentCount;
-            }
-            continue;
-        }
-        this->LineModeParse(line, line.length());
+        // InLineMode Parsing
+        this->InLineModeParse(line, line.length());
     }
 }
 void GenGenParser::PostParse()
