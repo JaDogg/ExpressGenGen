@@ -45,7 +45,7 @@ Use Qt creator and compile it
 * First get it built or use a prebuilt version
 * ExpressGenGen uses `STDIN` and `STDOUT` for communication
 
-## How do I execute xgengen ?
+## How do I execute `xgengen` ?
 
 * **Note:** All `*nix` examples should work on Windows with minor modifications 
 * **Note:** All Windows examples should work on `*nix` with minor modifications 
