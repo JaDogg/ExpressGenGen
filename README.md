@@ -47,8 +47,9 @@ Use Qt creator and compile it
 
 ## How do I execute xgengen ?
 
-* **Note** All `*nix` examples should work on Windows with minor modifications 
-* **Note** All Windows examples should work on `*nix` with minor modifications 
+* **Note:** All `*nix` examples should work on Windows with minor modifications 
+* **Note:** All Windows examples should work on `*nix` with minor modifications 
+* **Real power of ExpressGenGen comes with PIPE**
 
 ### Python output on `*nix`
 
