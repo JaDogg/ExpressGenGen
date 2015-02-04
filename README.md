@@ -62,4 +62,15 @@ type template.txt | xgengen.exe web > out.html
 start out.html
 ```
 
+### Lua Version Check on `*nix`
 
+Lua target is capable of running the generated code by itself 
+
+```
+echo 'Hello ExpressGenGen using :=> "{$$_VERSION$$}"' | xgengen lua
+```
+or 
+```
+echo 'Hello ExpressGenGen using :=> "{$$_VERSION$$}"' | xgengen
+```
+(default is lua)
