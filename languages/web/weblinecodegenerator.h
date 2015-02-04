@@ -4,12 +4,12 @@
 #include <boost/algorithm/string/replace.hpp>
 class WebLineCodeGenerator : public LineCodeGenerator {
 public:
-    void StartLine();
-    void EndLine();
-    void EscapedAppend(std::string& token, char c);
-    void WriteCodePrintingCode(const std::string& escapedCodeToPrint);
-    void WriteCode(const std::string& code);
-    std::string GetGeneratedCode();
+    virtual void StartLine();
+    virtual void EndLine();
+    virtual void EscapedAppend(std::string& token, char c);
+    virtual void WriteCodePrintingCode(const std::string& escapedCodeToPrint);
+    virtual void WriteCode(const std::string& code);
+    virtual std::string GetGeneratedCode();
     virtual std::string CalculateIndent(unsigned int amount);
 
 private:

@@ -10,12 +10,12 @@ void PrintHelp()
     std::cout << "xgengen --help : print help" << std::endl;
     std::cout << "---------------------------------" << std::endl;
     std::cout << "Meta Languages:" << std::endl;
-    std::cout << "cpp, python, web" << std::endl;
+    std::cout << "cpp, python, web, lua" << std::endl;
 }
 
 int main(int argc, char** argv)
 {
-    GenGenLanguage lang = GENGENLANG_CPP;
+    GenGenLanguage lang = GENGENLANG_LUA;
 
     if (argc == 2) {
         if (boost::equals(argv[1], "--help")) {
@@ -27,6 +27,8 @@ int main(int argc, char** argv)
             lang = GENGENLANG_PYTHON;
         } else if (boost::equals(argv[1], "web")) {
             lang = GENGENLANG_WEB;
+        } else if (boost::equals(argv[1], "lua")) {
+            lang = GENGENLANG_LUA;
         } else {
             std::cerr << "Language Not Found." << std::endl;
             PrintHelp();
@@ -38,7 +40,7 @@ int main(int argc, char** argv)
         return 1;
     }
 
-    GenGenParser* gengen = GenGenFactory().GetGenGenParser(lang);
+    GenGenParser* gengen = GenGenFactory().GetParser(lang);
     gengen->Parse();
     gengen->PostParse();
     delete gengen;

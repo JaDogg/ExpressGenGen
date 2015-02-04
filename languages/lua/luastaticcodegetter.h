@@ -1,9 +1,9 @@
-#ifndef PYTHONSTATICCODEGETTER_H
-#define PYTHONSTATICCODEGETTER_H
+#ifndef LUASTATICCODEGETTER_H
+#define LUASTATICCODEGETTER_H
 #include "gengen/staticcodegetter.h"
-class PythonStaticCodeGetter : public StaticCodeGetter {
+class LuaStaticCodeGetter : public StaticCodeGetter {
 public:
-    PythonStaticCodeGetter();
+    LuaStaticCodeGetter();
     virtual std::string GetBeforePreHeader();
     virtual std::string GetAfterPreHeader();
     virtual std::string GetAfterHeader();
@@ -13,4 +13,4 @@ public:
     virtual unsigned int GetStartingIndent();
 };
 
-#endif // PYTHONSTATICCODEGETTER_H
+#endif // LUASTATICCODEGETTER_H

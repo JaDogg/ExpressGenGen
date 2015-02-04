@@ -4,7 +4,9 @@ ExpressGenGen an Express Code Generator Generator
 ## Compiling
 
 ### Requirements
-* `BOOST_ROOT` set to boost install path (HEADER ONLY) 
+* BOOST 1.57
+* LUA 5.3.0
+* `BOOST_ROOT` set to boost install path 
 
 ### How To
 

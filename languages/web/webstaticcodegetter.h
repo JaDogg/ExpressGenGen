@@ -4,13 +4,13 @@
 class WebStaticCodeGetter : public StaticCodeGetter {
 public:
     WebStaticCodeGetter();
-    std::string GetBeforePreHeader();
-    std::string GetAfterPreHeader();
-    std::string GetAfterHeader();
-    std::string GetBeforeFooter();
-    std::string GetAfterFooter();
-    std::string GetAfterPostFooter();
-    unsigned int GetStartingIndent();
+    virtual std::string GetBeforePreHeader();
+    virtual std::string GetAfterPreHeader();
+    virtual std::string GetAfterHeader();
+    virtual std::string GetBeforeFooter();
+    virtual std::string GetAfterFooter();
+    virtual std::string GetAfterPostFooter();
+    virtual unsigned int GetStartingIndent();
 };
 
 #endif // WEBSTATICCODEGETTER_H

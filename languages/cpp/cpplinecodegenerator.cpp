@@ -13,6 +13,8 @@ void CppLineCodeGenerator::EscapedAppend(std::string& token, char c)
 {
     if (c == '"') {
         token += "\\\"";
+    } else if (c == '\\') {
+        token += "\\\\";
     } else {
         token.push_back(c);
     }

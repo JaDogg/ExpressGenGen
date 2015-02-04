@@ -10,16 +10,21 @@ SOURCES += main.cpp \
     gengen/codeappender.cpp \
     gengen/codejoiner.cpp \
     gengen/gengenfactory.cpp \
+    gengen/postparser.cpp \
     languages/cpp/cppstaticcodegetter.cpp \
     languages/cpp/cpplinecodegenerator.cpp \
     languages/python/pythonstaticcodegetter.cpp \
     languages/python/pythonlinecodegenerator.cpp \
     languages/web/webstaticcodegetter.cpp \
     languages/web/weblinecodegenerator.cpp \
-    gengen/postparser.cpp
+    languages/lua/luastaticcodegetter.cpp \
+    languages/lua/lualinecodegenerator.cpp \
+    languages/lua/luapostparser.cpp
+
 
 include(deployment.pri)
 include(boost.pri)
+include(lua.pri)
 qtcAddDeployment()
 
 HEADERS += \
@@ -29,13 +34,17 @@ HEADERS += \
     gengen/gengenparser.h \
     gengen/codejoiner.h \
     gengen/gengenfactory.h \
+    gengen/postparser.h \
     languages/cpp/cppstaticcodegetter.h \
     languages/cpp/cpplinecodegenerator.h \
     languages/python/pythonstaticcodegetter.h \
     languages/python/pythonlinecodegenerator.h \
     languages/web/webstaticcodegetter.h \
     languages/web/weblinecodegenerator.h \
-    gengen/postparser.h
+    languages/lua/luastaticcodegetter.h \
+    languages/lua/lualinecodegenerator.h \
+    languages/lua/luapostparser.h
+
 
 
 RC_FILE = winrsrc/winrsrc.rc

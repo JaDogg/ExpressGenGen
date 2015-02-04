@@ -1,6 +1,16 @@
 #include "gengenfactory.h"
 
-GenGenParser* GenGenFactory::GetGenGenParser(GenGenLanguage language)
+#include "postparser.h"
+#include "languages/cpp/cpplinecodegenerator.h"
+#include "languages/cpp/cppstaticcodegetter.h"
+#include "languages/python/pythonlinecodegenerator.h"
+#include "languages/python/pythonstaticcodegetter.h"
+#include "languages/web/weblinecodegenerator.h"
+#include "languages/web/webstaticcodegetter.h"
+#include "languages/lua/lualinecodegenerator.h"
+#include "languages/lua/luastaticcodegetter.h"
+#include "languages/lua/luapostparser.h"
+GenGenParser* GenGenFactory::GetParser(GenGenLanguage language)
 {
     switch (language) {
     case GENGENLANG_CPP:
@@ -9,6 +19,8 @@ GenGenParser* GenGenFactory::GetGenGenParser(GenGenLanguage language)
         return new GenGenParser(new PythonLineCodeGenerator(), new PythonStaticCodeGetter(), new PostParser());
     case GENGENLANG_WEB:
         return new GenGenParser(new WebLineCodeGenerator(), new WebStaticCodeGetter(), new PostParser());
+    case GENGENLANG_LUA:
+        return new GenGenParser(new LuaLineCodeGenerator(), new LuaStaticCodeGetter(), new LuaPostParser());
     default:
         return NULL;
     }

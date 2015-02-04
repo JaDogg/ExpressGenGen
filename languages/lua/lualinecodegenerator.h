@@ -1,19 +1,18 @@
-#ifndef PYTHONLINECODEGENERATOR_H
-#define PYTHONLINECODEGENERATOR_H
+#ifndef LUALINECODEGENERATOR_H
+#define LUALINECODEGENERATOR_H
 #include "gengen/linecodegenerator.h"
+#include "languages/cpp/cpplinecodegenerator.h"
 #include <boost/algorithm/string/replace.hpp>
-class PythonLineCodeGenerator : public LineCodeGenerator {
+class LuaLineCodeGenerator : public CppLineCodeGenerator {
 public:
     virtual void StartLine();
     virtual void EndLine();
-    virtual void EscapedAppend(std::string& token, char c);
     virtual void WriteCodePrintingCode(const std::string& escapedCodeToPrint);
     virtual void WriteCode(const std::string& code);
     virtual std::string GetGeneratedCode();
-    virtual std::string CalculateIndent(unsigned int amount);
 
 private:
     std::string mLineCode;
 };
 
-#endif // PYTHONLINECODEGENERATOR_H
+#endif // LUALINECODEGENERATOR_H
