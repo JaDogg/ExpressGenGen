@@ -15,6 +15,9 @@ ExpressGenGen an Express Code Generator Generator
 wget http://sourceforge.net/projects/boost/files/boost/1.57.0/boost_1_57_0.tar.gz/download -O boost_1_57_0.tar.gz
 tar xvf boost_1_57_0.tar.gz 
 export BOOST_ROOT=<extracted_dir>
+# you need to build BOOST
+# and the program_options library should be in $BOOST_ROOT/stage/lib
+# if it is in a diffrerent name copy it and rename it.
 wget http://www.lua.org/ftp/lua-5.3.0.tar.gz
 tar xvf lua-5.3.0.tar.gz
 export LUA_ROOT=<extracted_dir>/src
@@ -32,9 +35,6 @@ cd build
 cmake ..
 make
 ```
-* xgengen.pro, boost.pri, deployment.pri - to use with qmake
-
-Use Qt creator and compile it
 
 ## How It Works ?
 ![How It Works](http://lookpic.com/O/i2/1887/XPbfhaFj.png "How It Works")
