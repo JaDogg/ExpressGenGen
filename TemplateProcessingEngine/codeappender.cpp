@@ -43,5 +43,8 @@ void CodeAppender::Append(const std::string &code, BlockType blockType)
     case BLOCK_CODE:
         this->mStdStrCodeBody += (code + "\n");
         break;
+    case BLOCK_UNKNOWN:
+        //TODO add to error collector
+        break;
     }
 }

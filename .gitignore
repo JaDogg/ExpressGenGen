@@ -29,6 +29,7 @@
 
 # Qt Based
 xgengen.pro.user
+*.user
 # CMAKE
 build/
 #CPP Check

@@ -1,17 +1,17 @@
 #include "gengenfactory.h"
 
 #include "postparser.h"
-#include "languages/cpp/cpplinecodegenerator.h"
-#include "languages/cpp/cppstaticcodegetter.h"
-#include "languages/python/pythonlinecodegenerator.h"
-#include "languages/python/pythonstaticcodegetter.h"
-#include "languages/web/weblinecodegenerator.h"
-#include "languages/web/webstaticcodegetter.h"
-#include "languages/lua/lualinecodegenerator.h"
-#include "languages/lua/luastaticcodegetter.h"
-#include "languages/lua/luapostparser.h"
-#include "languages/bash/bashlinecodegenerator.h"
-#include "languages/bash/bashstaticcodegetter.h"
+#include "Lang/cpp/cpplinecodegenerator.h"
+#include "Lang/cpp/cppstaticcodegetter.h"
+#include "Lang/python/pythonlinecodegenerator.h"
+#include "Lang/python/pythonstaticcodegetter.h"
+#include "Lang/web/weblinecodegenerator.h"
+#include "Lang/web/webstaticcodegetter.h"
+#include "Lang/lua/lualinecodegenerator.h"
+#include "Lang/lua/luastaticcodegetter.h"
+#include "Lang/lua/luapostparser.h"
+#include "Lang/bash/bashlinecodegenerator.h"
+#include "Lang/bash/bashstaticcodegetter.h"
 
 GenGenParser* GenGenFactory::GetParser(GenGenLanguage language)
 {

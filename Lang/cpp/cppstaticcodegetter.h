@@ -1,9 +1,9 @@
-#ifndef WEBSTATICCODEGETTER_H
-#define WEBSTATICCODEGETTER_H
-#include "gengen/staticcodegetter.h"
-class WebStaticCodeGetter : public StaticCodeGetter {
+#ifndef CPPSTATICCODEGETTER_H
+#define CPPSTATICCODEGETTER_H
+#include "TemplateProcessingEngine/staticcodegetter.h"
+class CppStaticCodeGetter : public StaticCodeGetter {
 public:
-    WebStaticCodeGetter();
+    CppStaticCodeGetter();
     virtual std::string GetBeforePreHeader();
     virtual std::string GetAfterPreHeader();
     virtual std::string GetAfterHeader();
@@ -13,4 +13,4 @@ public:
     virtual unsigned int GetStartingIndent();
 };
 
-#endif // WEBSTATICCODEGETTER_H
+#endif // CPPSTATICCODEGETTER_H

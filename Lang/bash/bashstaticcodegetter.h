@@ -1,9 +1,9 @@
-#ifndef LUASTATICCODEGETTER_H
-#define LUASTATICCODEGETTER_H
-#include "gengen/staticcodegetter.h"
-class LuaStaticCodeGetter : public StaticCodeGetter {
+#ifndef BASHSTATICCODEGETTER_H
+#define BASHSTATICCODEGETTER_H
+#include "TemplateProcessingEngine/staticcodegetter.h"
+class BashStaticCodeGetter : public StaticCodeGetter {
 public:
-    LuaStaticCodeGetter();
+    BashStaticCodeGetter();
     virtual std::string GetBeforePreHeader();
     virtual std::string GetAfterPreHeader();
     virtual std::string GetAfterHeader();
@@ -13,4 +13,4 @@ public:
     virtual unsigned int GetStartingIndent();
 };
 
-#endif // LUASTATICCODEGETTER_H
+#endif // BASHSTATICCODEGETTER_H

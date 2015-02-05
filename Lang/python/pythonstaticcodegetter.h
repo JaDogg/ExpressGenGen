@@ -1,6 +1,6 @@
 #ifndef PYTHONSTATICCODEGETTER_H
 #define PYTHONSTATICCODEGETTER_H
-#include "gengen/staticcodegetter.h"
+#include "TemplateProcessingEngine/staticcodegetter.h"
 class PythonStaticCodeGetter : public StaticCodeGetter {
 public:
     PythonStaticCodeGetter();

@@ -1,8 +1,8 @@
-#ifndef WEBLINECODEGENERATOR_H
-#define WEBLINECODEGENERATOR_H
-#include "gengen/linecodegenerator.h"
+#ifndef PYTHONLINECODEGENERATOR_H
+#define PYTHONLINECODEGENERATOR_H
+#include "TemplateProcessingEngine/linecodegenerator.h"
 #include <boost/algorithm/string/replace.hpp>
-class WebLineCodeGenerator : public LineCodeGenerator {
+class PythonLineCodeGenerator : public LineCodeGenerator {
 public:
     virtual void StartLine();
     virtual void EndLine();
@@ -16,4 +16,4 @@ private:
     std::string mLineCode;
 };
 
-#endif // WEBLINECODEGENERATOR_H
+#endif // PYTHONLINECODEGENERATOR_H

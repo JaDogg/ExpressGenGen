@@ -1,9 +1,9 @@
-#ifndef CPPSTATICCODEGETTER_H
-#define CPPSTATICCODEGETTER_H
-#include "gengen/staticcodegetter.h"
-class CppStaticCodeGetter : public StaticCodeGetter {
+#ifndef LUASTATICCODEGETTER_H
+#define LUASTATICCODEGETTER_H
+#include "TemplateProcessingEngine/staticcodegetter.h"
+class LuaStaticCodeGetter : public StaticCodeGetter {
 public:
-    CppStaticCodeGetter();
+    LuaStaticCodeGetter();
     virtual std::string GetBeforePreHeader();
     virtual std::string GetAfterPreHeader();
     virtual std::string GetAfterHeader();
@@ -13,4 +13,4 @@ public:
     virtual unsigned int GetStartingIndent();
 };
 
-#endif // CPPSTATICCODEGETTER_H
+#endif // LUASTATICCODEGETTER_H

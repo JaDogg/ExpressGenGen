@@ -1,7 +1,7 @@
 #ifndef LUALINECODEGENERATOR_H
 #define LUALINECODEGENERATOR_H
-#include "gengen/linecodegenerator.h"
-#include "languages/cpp/cpplinecodegenerator.h"
+#include "TemplateProcessingEngine/linecodegenerator.h"
+#include "Lang/cpp/cpplinecodegenerator.h"
 #include <boost/algorithm/string/replace.hpp>
 class LuaLineCodeGenerator : public CppLineCodeGenerator {
 public:

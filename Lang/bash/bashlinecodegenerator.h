@@ -1,7 +1,8 @@
-#ifndef CPPLINECODEGENERATOR_H
-#define CPPLINECODEGENERATOR_H
-#include "gengen/linecodegenerator.h"
-class CppLineCodeGenerator : public LineCodeGenerator {
+#ifndef BASHLINECODEGENERATOR_H
+#define BASHLINECODEGENERATOR_H
+#include "TemplateProcessingEngine/linecodegenerator.h"
+#include <boost/algorithm/string/replace.hpp>
+class BashLineCodeGenerator : public LineCodeGenerator {
 public:
     virtual void StartLine();
     virtual void EndLine();
@@ -15,4 +16,4 @@ private:
     std::string mLineCode;
 };
 
-#endif // CPPLINECODEGENERATOR_H
+#endif // BASHLINECODEGENERATOR_H
