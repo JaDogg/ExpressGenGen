@@ -3,12 +3,12 @@ project(ExpressGenGen)
 cmake_minimum_required(VERSION 2.6)
 
 include_directories($ENV{BOOST_ROOT} $ENV{LUA_ROOT} .)
-link_directories($ENV{LUA_ROOT})
-set(CMAKE_CXX_FLAGS "${CMAXE_CXX_FLAGS} -Wall -std=c++11 -O3")
+link_directories($ENV{LUA_ROOT} $ENV{BOOST_ROOT}/stage/lib)
+set(CMAKE_CXX_FLAGS "${CMAXE_CXX_FLAGS} -Wall -Wextra -Wpedantic -std=c++11 -O3")
 
 set(sources 
 $$$find . -name \*.cpp | sed 's/\.\//  /'
-  winrsrc/winrsrc.rc)
+  WindowsRsrc/winrsrc.rc)
 add_executable(xgengen ${sources})
 target_link_libraries(xgengen lua)
-
+target_link_libraries(xgengen boost_program_options)

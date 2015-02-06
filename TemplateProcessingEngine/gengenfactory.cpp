@@ -1,5 +1,4 @@
 #include "gengenfactory.h"
-
 #include "postparser.h"
 #include "Lang/cpp/cpplinecodegenerator.h"
 #include "Lang/cpp/cppstaticcodegetter.h"
