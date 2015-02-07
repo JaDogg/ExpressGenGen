@@ -31,3 +31,4 @@ private:
 #endif // _ERROR_COLLECTOR_H_
 
 // TODO extract interface of ErrorCollector
+// TODO new class ErrorCollectorImpl

@@ -25,3 +25,4 @@ ErrorCollector mErrorCollector;
 #endif // _ERROR_PRINTER_H_
 
 //TODO Extract Interface of ErrorPrinter
+//TODO New Class StdErrErrorPrinter
