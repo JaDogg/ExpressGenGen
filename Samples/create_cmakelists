@@ -1,0 +1,8 @@
+#!/bin/bash
+
+cd ..
+cat Samples/template_bash_CMakeLists.txt | xgengen bash | bash - > CMakeLists.txt
+cat Samples/template_bash_TestHelper.h | xgengen bash | bash - > Tests/TestHelper.h
+
+
+

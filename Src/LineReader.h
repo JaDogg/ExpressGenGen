@@ -9,17 +9,16 @@
 //
 //--------------------------------------------
 // Uses
-//
+#include <string>
 //--------------------------------------------
 
-
-// LineReader Interface is a wrapper around std::readline
+// LineReader Interface is a wrapper around std::getline
 class LineReader {
 public:
     virtual bool ReadLine(std::string& line) = 0;
-    virtual ~LineReader(){}
-private:
+    virtual ~LineReader() {}
 
+private:
 };
 
 //-------------------------------------------

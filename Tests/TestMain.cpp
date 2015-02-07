@@ -3,11 +3,7 @@
 //
 //--------------------------------------------
 // Uses
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wall"
-#pragma GCC diagnostic ignored "-Wpedantic"
-#pragma GCC diagnostic ignored "-Wunused-local-typedefs"
-#include <gmock/gmock.h>
+#include "TestHelper.h"
 //--------------------------------------------
 
 int main(int argc, char** argv)
@@ -17,6 +13,3 @@ int main(int argc, char** argv)
 }
 
 //--------------------------------------------
-
-#pragma GCC diagnostic pop
-
