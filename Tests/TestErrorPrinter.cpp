@@ -1,16 +1,17 @@
 //--------------------------------------------
 // Definition
-#include "StdInReader.h"
+//
 //--------------------------------------------
 // Uses
-#include <iostream>
+#include "TestHelper.h"
 //--------------------------------------------
 
-bool StdInReader::ReadLine(std::string& line)
+TEST(ErrorPrinter, PrintMethod)
 {
-    return std::getline(std::cin, line);
+    ErrorCollector errColl;
+    errColl.Collect("(Part of Test) Some Error");
+    ErrorPrinter prnt(errColl);
+    prnt.Print();
 }
 
 //--------------------------------------------
-
-//TODO Refactor Rename to StdInLineReader

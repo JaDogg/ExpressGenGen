@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo 'Create New Test'
+echo '--------------------------'
+echo 'Type Class to test : '
+read _class
+# export the variables so they are visible to the child shell
+export class=$_class
+cat template_bash_Test.txt | xgengen bash | bash - > "../Tests/Test$class.cpp"
+./gen

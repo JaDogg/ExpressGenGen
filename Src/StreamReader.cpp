@@ -17,3 +17,5 @@ bool StreamReader::ReadLine(std::string& line)
 }
 
 //--------------------------------------------
+
+//TODO Refactor Rename to StreamLineReader

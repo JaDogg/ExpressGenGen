@@ -1,16 +1,14 @@
 //--------------------------------------------
 // Definition
-#include "StdInReader.h"
+//
 //--------------------------------------------
 // Uses
-#include <iostream>
+#include "TestHelper.h"
 //--------------------------------------------
 
-bool StdInReader::ReadLine(std::string& line)
+TEST({$$$class$$}, NewTest)
 {
-    return std::getline(std::cin, line);
+
 }
 
 //--------------------------------------------
-
-//TODO Refactor Rename to StdInLineReader

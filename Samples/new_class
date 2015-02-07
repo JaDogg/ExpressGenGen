@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo 'Create New Class'
+echo '--------------------------'
+echo 'Type Header Guard : '
+read _guard
+echo 'Type Class Name : '
+read _class
+# export the variables so they are visible to the child shell
+export guard=$_guard
+export class=$_class
+cat template_bash_CPP.txt | xgengen bash | bash - > "../Src/$class.cpp"
+cat template_bash_H.txt | xgengen bash | bash - > "../Src/$class.h"
+./gen

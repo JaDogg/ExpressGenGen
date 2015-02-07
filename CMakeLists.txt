@@ -6,16 +6,21 @@ link_directories($ENV{LUA_ROOT} $ENV{BOOST_ROOT}/stage/lib $ENV{GMOCK_HOME}/buil
 set(CMAKE_CXX_FLAGS "${CMAXE_CXX_FLAGS} -Wall -Wpedantic -std=gnu++11")
 
 set(sources 
+  Src/ErrorCollector.cpp
+  Src/ErrorPrinter.cpp
   Src/StdInReader.cpp
   Src/StreamReader.cpp
+  Tests/TestErrorCollector.cpp
+  Tests/TestErrorPrinter.cpp
   Tests/TestLineReader.cpp
   Tests/TestMain.cpp
-  Samples/template_bash_TestHelper.h
+  Src/ErrorCollector.h
+  Src/ErrorPrinter.h
   Src/LineReader.h
   Src/StdInReader.h
   Src/StreamReader.h
   Tests/TestHelper.h
-  WindowsRsrc/winrsrc.rc)
+  WindowsRsrc/WindowsRes.rc)
 add_executable(xgengen ${sources})
 target_link_libraries(xgengen lua)
 target_link_libraries(xgengen boost_program_options)
