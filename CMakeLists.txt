@@ -3,10 +3,13 @@ project(ExpressGenGen)
 cmake_minimum_required(VERSION 2.6)
 include_directories($ENV{BOOST_ROOT} $ENV{LUA_ROOT} $ENV{GMOCK_HOME}/include $ENV{GMOCK_HOME}/gtest/include .)
 link_directories($ENV{LUA_ROOT} $ENV{BOOST_ROOT}/stage/lib $ENV{GMOCK_HOME}/build $ENV{GMOCK_HOME}/build/gtest) 
-set(CMAKE_CXX_FLAGS "${CMAXE_CXX_FLAGS} -Wall -Wextra -Wpedantic -std=c++11 -O3")
+set(CMAKE_CXX_FLAGS "${CMAXE_CXX_FLAGS} -Wall -Wpedantic -std=gnu++11")
 
 set(sources 
-  main.cpp
+  Tests/main.cpp
+  Tests/TestLineReader.cpp
+  Src/LineReader.h
+  Src/StdInReader.cpp
   WindowsRsrc/winrsrc.rc)
 add_executable(xgengen ${sources})
 target_link_libraries(xgengen lua)
