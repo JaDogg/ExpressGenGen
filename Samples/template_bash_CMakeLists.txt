@@ -8,7 +8,7 @@ set(CMAKE_CXX_FLAGS "${CMAXE_CXX_FLAGS} -Wall -Wpedantic -std=gnu++11")
 set(sources 
 $$$find . -name '*.cpp' | sed 's/\.\//  /'
 $$$find . -name '*.h' | sed 's/\.\//  /'
-  WindowsRsrc/winrsrc.rc)
+  WindowsRsrc/WindowsRes.rc)
 add_executable(xgengen ${sources})
 target_link_libraries(xgengen lua)
 target_link_libraries(xgengen boost_program_options)

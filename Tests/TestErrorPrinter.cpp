@@ -8,10 +8,10 @@
 
 TEST(ErrorPrinter, PrintMethod)
 {
-    ErrorCollector errColl;
-    errColl.Collect("(Part of Test) Some Error");
-    ErrorPrinter prnt(errColl);
-    prnt.Print();
+    auto errColl(std::make_shared<ErrorCollectorImpl>());
+    errColl->Collect("(Part of Test) Some Error");
+    auto prnt (std::make_shared<StdErrErrorPrinter>(errColl));
+    prnt->Print();
 }
 
 //--------------------------------------------

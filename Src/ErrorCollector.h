@@ -16,19 +16,16 @@
 
 class ErrorCollector {
 public:
-    ErrorCollector();
-    void Collect(const std::string& error);
-    int GetCount();
-    bool IsEmpty();
-    std::shared_ptr<std::vector<std::string> > GetAllErrors();
+    virtual void Collect(const std::string& error) = 0;
+    virtual int GetCount() = 0;
+    virtual bool IsEmpty() = 0;
+    virtual std::shared_ptr<std::vector<std::string> > GetAllErrors() = 0;
+    virtual ~ErrorCollector() {}
 
 private:
-    std::shared_ptr<std::vector<std::string> > mErrors;
 };
 
 //-------------------------------------------
 
 #endif // _ERROR_COLLECTOR_H_
 
-// TODO extract interface of ErrorCollector
-// TODO new class ErrorCollectorImpl

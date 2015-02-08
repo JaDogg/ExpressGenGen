@@ -6,8 +6,8 @@ link_directories($ENV{LUA_ROOT} $ENV{BOOST_ROOT}/stage/lib $ENV{GMOCK_HOME}/buil
 set(CMAKE_CXX_FLAGS "${CMAXE_CXX_FLAGS} -Wall -Wpedantic -std=gnu++11")
 
 set(sources 
-  Src/ErrorCollector.cpp
-  Src/ErrorPrinter.cpp
+  Src/ErrorCollectorImpl.cpp
+  Src/StdErrErrorPrinter.cpp
   Src/StdInReader.cpp
   Src/StreamReader.cpp
   Tests/TestErrorCollector.cpp
@@ -15,8 +15,10 @@ set(sources
   Tests/TestLineReader.cpp
   Tests/TestMain.cpp
   Src/ErrorCollector.h
-  Src/ErrorPrinter.h
+  Src/ErrorCollectorImpl.h
   Src/LineReader.h
+  Src/Printer.h
+  Src/StdErrErrorPrinter.h
   Src/StdInReader.h
   Src/StreamReader.h
   Tests/TestHelper.h

@@ -1,28 +1,25 @@
-#ifndef _ERROR_PRINTER_H_
-#define _ERROR_PRINTER_H_
+#ifndef _STD_ERR_ERROR_PRINTER_H_
+#define _STD_ERR_ERROR_PRINTER_H_
 
 //--------------------------------------------
 // Has
 #include "ErrorCollector.h"
 //--------------------------------------------
 // Inherits
-//
+#include "Printer.h"
 //--------------------------------------------
 // Uses
-//
+#include <memory>
 //--------------------------------------------
 
-class ErrorPrinter {
+class StdErrErrorPrinter : public Printer {
 public:
-    ErrorPrinter(const ErrorCollector& errorCollector);
+    StdErrErrorPrinter(const std::shared_ptr<ErrorCollector>& errorCollector);
     void Print();
 private:
-ErrorCollector mErrorCollector;
+    std::shared_ptr<ErrorCollector> mErrorCollector;
 };
 
 //-------------------------------------------
 
-#endif // _ERROR_PRINTER_H_
-
-//TODO Extract Interface of ErrorPrinter
-//TODO New Class StdErrErrorPrinter
+#endif // _STD_ERR_ERROR_PRINTER_H_

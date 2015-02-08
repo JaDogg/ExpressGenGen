@@ -1,19 +1,19 @@
 //--------------------------------------------
 // Definition
-#include "ErrorPrinter.h"
+#include "StdErrErrorPrinter.h"
 //--------------------------------------------
 // Uses
 #include <iostream>
 //--------------------------------------------
 
-ErrorPrinter::ErrorPrinter(const ErrorCollector& errorCollector)
+StdErrErrorPrinter::StdErrErrorPrinter(const std::shared_ptr<ErrorCollector> &errorCollector)
     : mErrorCollector(errorCollector)
 {
 }
 
-void ErrorPrinter::Print()
+void StdErrErrorPrinter::Print()
 {
-    for (auto singleError : *mErrorCollector.GetAllErrors()) {
+    for (auto singleError : *mErrorCollector->GetAllErrors()) {
         std::cerr << singleError << std::endl;
     }
 }
