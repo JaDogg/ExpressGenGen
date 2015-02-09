@@ -7,20 +7,24 @@ set(CMAKE_CXX_FLAGS "${CMAXE_CXX_FLAGS} -Wall -Wpedantic -std=gnu++11")
 
 set(sources 
   Src/ErrorCollectorImpl.cpp
+  Src/ReadingPreprocessor.cpp
   Src/StdErrErrorPrinter.cpp
-  Src/StdInReader.cpp
-  Src/StreamReader.cpp
+  Src/StdInLineReader.cpp
+  Src/StreamLineReader.cpp
   Tests/TestErrorCollector.cpp
   Tests/TestErrorPrinter.cpp
   Tests/TestLineReader.cpp
   Tests/TestMain.cpp
+  Tests/TestPreprocessor.cpp
   Src/ErrorCollector.h
   Src/ErrorCollectorImpl.h
   Src/LineReader.h
+  Src/Preprocessor.h
   Src/Printer.h
+  Src/ReadingPreprocessor.h
   Src/StdErrErrorPrinter.h
-  Src/StdInReader.h
-  Src/StreamReader.h
+  Src/StdInLineReader.h
+  Src/StreamLineReader.h
   Tests/TestHelper.h
   WindowsRsrc/WindowsRes.rc)
 add_executable(xgengen ${sources})

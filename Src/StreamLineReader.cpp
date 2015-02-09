@@ -1,21 +1,20 @@
 //--------------------------------------------
 // Definition
-#include "StreamReader.h"
+#include "StreamLineReader.h"
 //--------------------------------------------
 // Uses
 #include <iostream>
 //--------------------------------------------
 
-StreamReader::StreamReader(const std::shared_ptr<std::istream>& stream)
+StreamLineReader::StreamLineReader(const std::shared_ptr<std::istream>& stream)
     : mStream(stream)
 {
 }
 
-bool StreamReader::ReadLine(std::string& line)
+bool StreamLineReader::ReadLine(std::string& line)
 {
     return std::getline(*mStream, line);
 }
 
 //--------------------------------------------
 
-//TODO Refactor Rename to StreamLineReader

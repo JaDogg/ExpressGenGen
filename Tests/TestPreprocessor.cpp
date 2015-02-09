@@ -6,33 +6,25 @@
 #include "TestHelper.h"
 //--------------------------------------------
 
-TEST(LineReader, CreateStdInReader)
-{
-    auto reader(std::make_shared<StdInLineReader>());
-}
-
-TEST(LineReader, ReadLineFromStream)
+TEST(Preprocessor, Process)
 {
     std::string str("Hello\nWorld");
-    std::string line;
     auto strStream(std::make_shared<std::stringstream>(str));
     auto reader(std::make_shared<StreamLineReader>(strStream));
-    reader->ReadLine(line);
-    ASSERT_EQ(line, "Hello");
-    reader->ReadLine(line);
-    ASSERT_EQ(line, "World");
-    ASSERT_FALSE(reader->ReadLine(line));
-    ASSERT_EQ(line, "World");
+    // preprocessor takes a LineReader
+    auto preprocessor(std::make_shared<ReadingPreprocessor>(reader));
+    preprocessor->Process();
 }
 
-TEST(LineReader, EmptyFromStart)
+TEST(Preprocessor, GetLines)
 {
-    std::string str;
-    std::string line;
+    std::string str("Hello\nWorld");
     auto strStream(std::make_shared<std::stringstream>(str));
     auto reader(std::make_shared<StreamLineReader>(strStream));
-    ASSERT_FALSE(reader->ReadLine(line));
-    ASSERT_TRUE(line.empty());
+    auto preprocessor(std::make_shared<ReadingPreprocessor>(reader));
+    preprocessor->Process();
+    auto lines = preprocessor->GetLines();
+    ASSERT_EQ(lines->front(), "Hello");
+    ASSERT_EQ(lines->back(), "World");
 }
-
 //--------------------------------------------

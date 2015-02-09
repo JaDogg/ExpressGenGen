@@ -1,25 +1,28 @@
-#ifndef _STD_IN_READER_H_
-#define _STD_IN_READER_H_
+#ifndef _PREPROCESSOR_H_
+#define _PREPROCESSOR_H_
 
 //--------------------------------------------
 // Has
 //
 //--------------------------------------------
 // Inherits
-#include "LineReader.h"
+//
 //--------------------------------------------
 // Uses
+#include <memory>
+#include <vector>
 #include <string>
 //--------------------------------------------
 
-// Read lines from std::cin
-class StdInReader : public LineReader {
+class Preprocessor {
 public:
-    virtual bool ReadLine(std::string& line);
+    virtual void Process() = 0;
+    virtual std::shared_ptr<std::vector<std::string> > GetLines() = 0;
+    virtual ~Preprocessor() {}
 
 private:
 };
 
 //-------------------------------------------
 
-#endif // _STD_IN_READER_H_
+#endif // _PREPROCESSOR_H_
