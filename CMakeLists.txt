@@ -7,6 +7,7 @@ set(CMAKE_CXX_FLAGS "${CMAXE_CXX_FLAGS} -Wall -Wpedantic -std=gnu++11")
 
 set(sources 
   Src/ErrorCollectorImpl.cpp
+  Src/IndentGeneratorImpl.cpp
   Src/KeywordGetterImpl.cpp
   Src/ReadingPreprocessor.cpp
   Src/StdErrErrorPrinter.cpp
@@ -14,12 +15,15 @@ set(sources
   Src/StreamLineReader.cpp
   Tests/TestErrorCollector.cpp
   Tests/TestErrorPrinter.cpp
+  Tests/TestIndentGenerator.cpp
   Tests/TestKeywordGetter.cpp
   Tests/TestLineReader.cpp
   Tests/TestMain.cpp
   Tests/TestPreprocessor.cpp
   Src/ErrorCollector.h
   Src/ErrorCollectorImpl.h
+  Src/IndentGenerator.h
+  Src/IndentGeneratorImpl.h
   Src/KeywordGetter.h
   Src/KeywordGetterImpl.h
   Src/LineReader.h
