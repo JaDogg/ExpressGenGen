@@ -1,5 +1,5 @@
-#ifndef _PRINTER_H_
-#define _PRINTER_H_
+#ifndef _STATIC_CODE_GETTER_H_
+#define _STATIC_CODE_GETTER_H_
 
 //--------------------------------------------
 // Has
@@ -12,14 +12,14 @@
 //
 //--------------------------------------------
 
-class Printer {
+class StaticCodeGetter {
 public:
-    virtual void Print() = 0;
-    virtual ~Printer() {}
+    StaticCodeGetter();
+    virtual ~StaticCodeGetter() {}
 
 private:
 };
 
 //-------------------------------------------
 
-#endif // _PRINTER_H_
+#endif // _STATIC_CODE_GETTER_H_

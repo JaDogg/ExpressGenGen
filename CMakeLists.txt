@@ -17,19 +17,23 @@ set(sources
   Tests/TestErrorPrinter.cpp
   Tests/TestIndentGenerator.cpp
   Tests/TestKeywordGetter.cpp
+  Tests/TestLineCodeGenerator.cpp
   Tests/TestLineReader.cpp
   Tests/TestMain.cpp
   Tests/TestPreprocessor.cpp
+  Tests/TestStaticCodeGetter.cpp
   Src/ErrorCollector.h
   Src/ErrorCollectorImpl.h
   Src/IndentGenerator.h
   Src/IndentGeneratorImpl.h
   Src/KeywordGetter.h
   Src/KeywordGetterImpl.h
+  Src/LineCodeGenerator.h
   Src/LineReader.h
   Src/Preprocessor.h
   Src/Printer.h
   Src/ReadingPreprocessor.h
+  Src/StaticCodeGetter.h
   Src/StdErrErrorPrinter.h
   Src/StdInLineReader.h
   Src/StreamLineReader.h

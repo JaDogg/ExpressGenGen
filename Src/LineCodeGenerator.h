@@ -1,5 +1,5 @@
-#ifndef _PRINTER_H_
-#define _PRINTER_H_
+#ifndef _LINE_CODE_GENERATOR_H_
+#define _LINE_CODE_GENERATOR_H_
 
 //--------------------------------------------
 // Has
@@ -12,14 +12,14 @@
 //
 //--------------------------------------------
 
-class Printer {
+class LineCodeGenerator {
 public:
-    virtual void Print() = 0;
-    virtual ~Printer() {}
+    LineCodeGenerator();
+    virtual ~LineCodeGenerator() {}
 
 private:
 };
 
 //-------------------------------------------
 
-#endif // _PRINTER_H_
+#endif // _LINE_CODE_GENERATOR_H_
