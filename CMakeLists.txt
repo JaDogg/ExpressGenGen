@@ -7,17 +7,21 @@ set(CMAKE_CXX_FLAGS "${CMAXE_CXX_FLAGS} -Wall -Wpedantic -std=gnu++11")
 
 set(sources 
   Src/ErrorCollectorImpl.cpp
+  Src/KeywordGetterImpl.cpp
   Src/ReadingPreprocessor.cpp
   Src/StdErrErrorPrinter.cpp
   Src/StdInLineReader.cpp
   Src/StreamLineReader.cpp
   Tests/TestErrorCollector.cpp
   Tests/TestErrorPrinter.cpp
+  Tests/TestKeywordGetter.cpp
   Tests/TestLineReader.cpp
   Tests/TestMain.cpp
   Tests/TestPreprocessor.cpp
   Src/ErrorCollector.h
   Src/ErrorCollectorImpl.h
+  Src/KeywordGetter.h
+  Src/KeywordGetterImpl.h
   Src/LineReader.h
   Src/Preprocessor.h
   Src/Printer.h
