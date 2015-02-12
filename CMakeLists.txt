@@ -17,18 +17,17 @@ set(sources
   Tests/TestErrorPrinter.cpp
   Tests/TestIndentGenerator.cpp
   Tests/TestKeywordGetter.cpp
-  Tests/TestLineCodeGenerator.cpp
   Tests/TestLineReader.cpp
   Tests/TestMain.cpp
   Tests/TestPreprocessor.cpp
   Tests/TestStaticCodeGetter.cpp
+  Src/ArgsForEchoJoiner.h
   Src/ErrorCollector.h
   Src/ErrorCollectorImpl.h
   Src/IndentGenerator.h
   Src/IndentGeneratorImpl.h
   Src/KeywordGetter.h
   Src/KeywordGetterImpl.h
-  Src/LineCodeGenerator.h
   Src/LineReader.h
   Src/Preprocessor.h
   Src/Printer.h
@@ -37,6 +36,7 @@ set(sources
   Src/StdErrErrorPrinter.h
   Src/StdInLineReader.h
   Src/StreamLineReader.h
+  Src/StringTokenGenerator.h
   Tests/TestHelper.h
   WindowsRsrc/WindowsRes.rc)
 add_executable(xgengen ${sources})

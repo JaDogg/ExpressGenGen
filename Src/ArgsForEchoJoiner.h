@@ -1,5 +1,5 @@
-#ifndef _LINE_CODE_GENERATOR_H_
-#define _LINE_CODE_GENERATOR_H_
+#ifndef _ARGS_FOR_ECHO_JOINER_H_
+#define _ARGS_FOR_ECHO_JOINER_H_
 
 //--------------------------------------------
 // Has
@@ -9,17 +9,16 @@
 //
 //--------------------------------------------
 // Uses
-//
+#include <string>
 //--------------------------------------------
 
-class LineCodeGenerator {
+class ArgsForEchoJoiner {
 public:
-    LineCodeGenerator();
-    virtual ~LineCodeGenerator() {}
+    virtual ~ArgsForEchoJoiner() {}
 
 private:
 };
 
 //-------------------------------------------
 
-#endif // _LINE_CODE_GENERATOR_H_
+#endif // _ARGS_FOR_ECHO_JOINER_H_

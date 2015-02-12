@@ -14,23 +14,23 @@
 
 struct Keywords {
     //block mode
-    const std::string preheader;
-    const std::string header;
-    const std::string footer;
-    const std::string postFooter;
-    const std::string codeBlock;
-    const std::string endBlock;
-    // single line mode
-    const std::string lineDump;
-    const std::string indentNext;
-    const std::string indentEqual;
-    const std::string indentDepthOfTwo;
-    const std::string unindentNext;
-    const std::string unindentEqual;
-    const std::string unindentDepthOfTwo;
+    const std::string Preheader;
+    const std::string Header;
+    const std::string Footer;
+    const std::string PostFooter;
+    const std::string CodeBlock;
+    const std::string EndBlock;
+    //single line mode
+    const std::string LineDump;
+    const std::string IndentNext;
+    const std::string IndentEqual;
+    const std::string IndentDepthOfTwo;
+    const std::string UnindentNext;
+    const std::string UnindentEqual;
+    const std::string UnindentDepthOfTwo;
     //inline mode
-    const std::string beginInline;
-    const std::string endInline;
+    const std::string BeginInline;
+    const std::string EndInline;
 };
 
 enum KeywordType {

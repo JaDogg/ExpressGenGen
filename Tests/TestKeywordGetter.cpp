@@ -10,21 +10,21 @@ TEST(KeywordGetter, GetKeywords)
 {
     auto keywordGetter(std::make_shared<KeywordGetterImpl>(AT_SIGN_KEYWORDS));
     const Keywords keywords = keywordGetter->GetKeywords();
-    ASSERT_EQ(keywords.preheader, "@@PREHEADER");
-    ASSERT_EQ(keywords.header, "@@HEADER");
-    ASSERT_EQ(keywords.footer, "@@FOOTER");
-    ASSERT_EQ(keywords.postFooter, "@@POSTFOOTER");
-    ASSERT_EQ(keywords.codeBlock, "@@CODE");
-    ASSERT_EQ(keywords.endBlock, "@@END");
-    ASSERT_EQ(keywords.lineDump, "@@@");
-    ASSERT_EQ(keywords.indentNext, "@@>");
-    ASSERT_EQ(keywords.indentEqual, "@=>");
-    ASSERT_EQ(keywords.indentDepthOfTwo, "@>>");
-    ASSERT_EQ(keywords.unindentNext, "<@@");
-    ASSERT_EQ(keywords.unindentEqual, "<=@");
-    ASSERT_EQ(keywords.unindentDepthOfTwo, "<<@");
-    ASSERT_EQ(keywords.beginInline, "{@@");
-    ASSERT_EQ(keywords.endInline, "@@}");
+    ASSERT_EQ(keywords.Preheader, "@@PREHEADER");
+    ASSERT_EQ(keywords.Header, "@@HEADER");
+    ASSERT_EQ(keywords.Footer, "@@FOOTER");
+    ASSERT_EQ(keywords.PostFooter, "@@POSTFOOTER");
+    ASSERT_EQ(keywords.CodeBlock, "@@CODE");
+    ASSERT_EQ(keywords.EndBlock, "@@END");
+    ASSERT_EQ(keywords.LineDump, "@@@");
+    ASSERT_EQ(keywords.IndentNext, "@@>");
+    ASSERT_EQ(keywords.IndentEqual, "@=>");
+    ASSERT_EQ(keywords.IndentDepthOfTwo, "@>>");
+    ASSERT_EQ(keywords.UnindentNext, "<@@");
+    ASSERT_EQ(keywords.UnindentEqual, "<=@");
+    ASSERT_EQ(keywords.UnindentDepthOfTwo, "<<@");
+    ASSERT_EQ(keywords.BeginInline, "{@@");
+    ASSERT_EQ(keywords.EndInline, "@@}");
 
     auto keywordGetter2(std::make_shared<KeywordGetterImpl>(DOLLAR_KEYWORDS));
     auto keywords2 = keywordGetter2->GetKeywords();

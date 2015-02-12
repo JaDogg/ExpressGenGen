@@ -15,6 +15,7 @@
 class StaticCodeGetter {
 public:
     StaticCodeGetter();
+
     virtual ~StaticCodeGetter() {}
 
 private:
