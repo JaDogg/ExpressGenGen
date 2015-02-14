@@ -1,6 +1,5 @@
 #ifndef _ARGS_FOR_ECHO_JOINER_H_
 #define _ARGS_FOR_ECHO_JOINER_H_
-//TODO Code ArgsForEchoJoiner
 //--------------------------------------------
 // Has
 //
@@ -21,6 +20,9 @@
  */
 class ArgsForEchoJoiner {
 public:
+    virtual void AddToken(const std::string& token) = 0;
+    virtual void AddStringToken(const std::string& strToken) = 0;
+    virtual std::string GetCode() = 0;
     virtual ~ArgsForEchoJoiner() {}
 
 private:
