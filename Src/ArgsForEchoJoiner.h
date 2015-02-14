@@ -16,7 +16,7 @@
  * is used to get for example comma seperated values for
  * languages like Python and JavaScript and '<<' seperated values
  * for C++. Since the comma-space seperation is useful for most
- * Languages having this abstraction avoids duplication
+ * Languages having this abstraction avoids duplication.
  */
 class ArgsForEchoJoiner {
 public:

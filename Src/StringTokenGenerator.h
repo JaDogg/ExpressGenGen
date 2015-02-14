@@ -1,6 +1,5 @@
 #ifndef _STRING_TOKEN_GENERATOR_
 #define _STRING_TOKEN_GENERATOR_
-//TODO Code StringTokenGenerator
 //--------------------------------------------
 // Has
 //
@@ -9,12 +8,13 @@
 //
 //--------------------------------------------
 // Uses
-//
+#include <string>
 //--------------------------------------------
 
 class StringTokenGenerator {
 public:
-    StringTokenGenerator();
+    virtual void Append(char c) = 0;
+    virtual std::string GetToken() = 0 ;
     virtual ~StringTokenGenerator() {}
 
 private:
@@ -24,4 +24,4 @@ private:
 
 #endif // _STRING_TOKEN_GENERATOR_
 
-//TODO StringTokenGenerator -> (escaping the string is part of the job) for dbl quote,single quote, bash
+//TODO StringTokenGenerator -> SingleQuote, Bash

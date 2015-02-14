@@ -14,16 +14,28 @@ TEST(ArgsForEchoJoiner, CommaSpaceArgsForEchoJoinerBasicUsage)
     // special processing at that level is needed it can be handled too
     // ex : Python needs to add str(Token) to non string tokens
     auto argsJoiner(std::make_shared<CommaSpaceArgsForEchoJoiner>());
+    ASSERT_EQ(argsJoiner->GetCode(), "");
+    ASSERT_EQ(argsJoiner->GetCode(), "");
+    ASSERT_EQ(argsJoiner->GetCode(), "");
+    ASSERT_EQ(argsJoiner->GetCode(), "");
     argsJoiner->AddStringToken("'abc'");
     argsJoiner->AddToken("val");
     argsJoiner->AddStringToken("'xyz'");
     // this is directly usable in javascript version, and would be in many more languages
     ASSERT_EQ(argsJoiner->GetCode(), "'abc', val, 'xyz'");
+    ASSERT_EQ(argsJoiner->GetCode(), "");
+    ASSERT_EQ(argsJoiner->GetCode(), "");
+    ASSERT_EQ(argsJoiner->GetCode(), "");
+    ASSERT_EQ(argsJoiner->GetCode(), "");
 }
 
 TEST(ArgsForEchoJoiner, CommaSpaceArgsForEchoJoinerExecuteTwice)
 {
     auto argsJoiner(std::make_shared<CommaSpaceArgsForEchoJoiner>());
+    ASSERT_EQ(argsJoiner->GetCode(), "");
+    ASSERT_EQ(argsJoiner->GetCode(), "");
+    ASSERT_EQ(argsJoiner->GetCode(), "");
+    ASSERT_EQ(argsJoiner->GetCode(), "");
     argsJoiner->AddStringToken("'abc'");
     argsJoiner->AddToken("val");
     argsJoiner->AddStringToken("'xyz'");
@@ -33,6 +45,11 @@ TEST(ArgsForEchoJoiner, CommaSpaceArgsForEchoJoinerExecuteTwice)
     argsJoiner->AddToken("baz");
     argsJoiner->AddToken("foo");
     ASSERT_EQ(argsJoiner->GetCode(), "'lmn', baz, foo");
+    ASSERT_EQ(argsJoiner->GetCode(), "");
+    ASSERT_EQ(argsJoiner->GetCode(), "");
+    ASSERT_EQ(argsJoiner->GetCode(), "");
+    ASSERT_EQ(argsJoiner->GetCode(), "");
+    ASSERT_EQ(argsJoiner->GetCode(), "");
     ASSERT_EQ(argsJoiner->GetCode(), "");
 }
 //--------------------------------------------

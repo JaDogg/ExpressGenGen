@@ -22,3 +22,5 @@ const StaticCode BashStaticCodeGetter::GetStaticCode() const
 }
 
 //--------------------------------------------
+
+//TODO Do the 'bash' version completely (after other to dos)

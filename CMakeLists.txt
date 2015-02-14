@@ -8,6 +8,7 @@ set(CMAKE_CXX_FLAGS "${CMAXE_CXX_FLAGS} -Wall -Wpedantic -std=gnu++11")
 set(sources 
   Src/BashStaticCodeGetter.cpp
   Src/CommaSpaceArgsForEchoJoiner.cpp
+  Src/DoubleQuoteStringTokenGenerator.cpp
   Src/ErrorCollectorImpl.cpp
   Src/IndentGeneratorImpl.cpp
   Src/KeywordGetterImpl.cpp
@@ -24,9 +25,11 @@ set(sources
   Tests/TestMain.cpp
   Tests/TestPreprocessor.cpp
   Tests/TestStaticCodeGetter.cpp
+  Tests/TestStringTokenGenerator.cpp
   Src/ArgsForEchoJoiner.h
   Src/BashStaticCodeGetter.h
   Src/CommaSpaceArgsForEchoJoiner.h
+  Src/DoubleQuoteStringTokenGenerator.h
   Src/ErrorCollector.h
   Src/ErrorCollectorImpl.h
   Src/IndentGenerator.h

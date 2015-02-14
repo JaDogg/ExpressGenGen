@@ -18,6 +18,7 @@
 #include "../Src/ArgsForEchoJoiner.h"
 #include "../Src/BashStaticCodeGetter.h"
 #include "../Src/CommaSpaceArgsForEchoJoiner.h"
+#include "../Src/DoubleQuoteStringTokenGenerator.h"
 #include "../Src/ErrorCollector.h"
 #include "../Src/ErrorCollectorImpl.h"
 #include "../Src/IndentGenerator.h"
