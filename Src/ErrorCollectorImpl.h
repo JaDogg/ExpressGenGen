@@ -12,6 +12,9 @@
 //
 //--------------------------------------------
 
+/*!
+ * \brief The ErrorCollector Implementation class
+ */
 class ErrorCollectorImpl : public ErrorCollector {
 public:
     ErrorCollectorImpl();

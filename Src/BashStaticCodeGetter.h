@@ -1,28 +1,23 @@
-#ifndef _LINE_READER_H_
-#define _LINE_READER_H_
+#ifndef _BASH_STATIC_CODE_GETTER_H_
+#define _BASH_STATIC_CODE_GETTER_H_
 
 //--------------------------------------------
 // Has
 //
 //--------------------------------------------
 // Inherits
-//
+#include "StaticCodeGetter.h"
 //--------------------------------------------
 // Uses
-#include <string>
+//
 //--------------------------------------------
 
-/*!
- * LineReader abstraction is a wrapper around std::getline
- */
-class LineReader {
+class BashStaticCodeGetter : public StaticCodeGetter {
 public:
-    virtual bool ReadLine(std::string& line) = 0;
-    virtual ~LineReader() {}
-
+    const StaticCode GetStaticCode() const;
 private:
 };
 
 //-------------------------------------------
 
-#endif // _LINE_READER_H_
+#endif // _BASH_STATIC_CODE_GETTER_H_

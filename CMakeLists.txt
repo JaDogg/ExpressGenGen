@@ -6,6 +6,7 @@ link_directories($ENV{LUA_ROOT} $ENV{BOOST_ROOT}/stage/lib $ENV{GMOCK_HOME}/buil
 set(CMAKE_CXX_FLAGS "${CMAXE_CXX_FLAGS} -Wall -Wpedantic -std=gnu++11")
 
 set(sources 
+  Src/BashStaticCodeGetter.cpp
   Src/ErrorCollectorImpl.cpp
   Src/IndentGeneratorImpl.cpp
   Src/KeywordGetterImpl.cpp
@@ -13,6 +14,7 @@ set(sources
   Src/StdErrErrorPrinter.cpp
   Src/StdInLineReader.cpp
   Src/StreamLineReader.cpp
+  Tests/TestArgsForEchoJoiner.cpp
   Tests/TestErrorCollector.cpp
   Tests/TestErrorPrinter.cpp
   Tests/TestIndentGenerator.cpp
@@ -22,6 +24,7 @@ set(sources
   Tests/TestPreprocessor.cpp
   Tests/TestStaticCodeGetter.cpp
   Src/ArgsForEchoJoiner.h
+  Src/BashStaticCodeGetter.h
   Src/ErrorCollector.h
   Src/ErrorCollectorImpl.h
   Src/IndentGenerator.h
