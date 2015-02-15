@@ -1,5 +1,5 @@
-#ifndef _STRING_TOKEN_GENERATOR_
-#define _STRING_TOKEN_GENERATOR_
+#ifndef _STRING_TOKEN_GENERATOR_H_
+#define _STRING_TOKEN_GENERATOR_H_
 //--------------------------------------------
 // Has
 //
@@ -22,6 +22,6 @@ private:
 
 //-------------------------------------------
 
-#endif // _STRING_TOKEN_GENERATOR_
+#endif // _STRING_TOKEN_GENERATOR_H_
 
 //TODO StringTokenGenerator -> SingleQuote, Bash

@@ -29,6 +29,7 @@
 #include "../Src/Preprocessor.h"
 #include "../Src/Printer.h"
 #include "../Src/ReadingPreprocessor.h"
+#include "../Src/SingleQuoteStringTokenGenerator.h"
 #include "../Src/StaticCodeGetter.h"
 #include "../Src/StdErrErrorPrinter.h"
 #include "../Src/StdInLineReader.h"

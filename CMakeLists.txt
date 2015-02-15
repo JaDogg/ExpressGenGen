@@ -13,6 +13,7 @@ set(sources
   Src/IndentGeneratorImpl.cpp
   Src/KeywordGetterImpl.cpp
   Src/ReadingPreprocessor.cpp
+  Src/SingleQuoteStringTokenGenerator.cpp
   Src/StdErrErrorPrinter.cpp
   Src/StdInLineReader.cpp
   Src/StreamLineReader.cpp
@@ -40,6 +41,7 @@ set(sources
   Src/Preprocessor.h
   Src/Printer.h
   Src/ReadingPreprocessor.h
+  Src/SingleQuoteStringTokenGenerator.h
   Src/StaticCodeGetter.h
   Src/StdErrErrorPrinter.h
   Src/StdInLineReader.h

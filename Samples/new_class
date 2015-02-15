@@ -2,10 +2,10 @@
 
 echo 'Create New Class'
 echo '--------------------------'
-echo 'Type Header Guard : '
-read _guard
 echo 'Type Class Name : '
 read _class
+# convert Upper Camel case to header guard, ex: NewClass -> _NEW_CLASS_H_
+_guard=`echo $_class | sed -e 's/\([A-Z]\)/_\1/g' | awk '{printf toupper($0)} END{printf "_H_";}'`
 # export the variables so they are visible to the child shell
 export guard=$_guard
 export class=$_class

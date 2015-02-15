@@ -15,12 +15,12 @@
 class ReadingPreprocessor : public Preprocessor {
 public:
     ReadingPreprocessor(std::shared_ptr<LineReader> lineReader);
-    std::shared_ptr<std::vector<std::string> > GetLines();
-    void Process();
-
+    std::shared_ptr<std::vector<CodeLine> > GetLines();
+    void Process(std::string startingFile);
 
 private:
     std::shared_ptr<LineReader> mLineReader;
+    std::string mStartingFile;
 };
 
 //-------------------------------------------
