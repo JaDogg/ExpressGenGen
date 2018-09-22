@@ -11,7 +11,7 @@ ExpressGenGen an Express Code Generator Generator
 
 #### Installing Requirements
 
-```
+```bash
 wget http://sourceforge.net/projects/boost/files/boost/1.57.0/boost_1_57_0.tar.gz/download -O boost_1_57_0.tar.gz
 tar xvf boost_1_57_0.tar.gz 
 export BOOST_ROOT=<extracted_dir>
@@ -29,7 +29,7 @@ make generic
 
 * CMakeLists.txt - to use with cmake
 
-```
+```bash
 mkdir build 
 cd build 
 cmake ..
@@ -53,7 +53,7 @@ make
 
 ### Python output on `*nix`
 
-```
+```bash
 cat template.txt | xgengen python > gen.py
 chmod a+x gen.py
 ./gen.py > output.txt
@@ -61,7 +61,7 @@ chmod a+x gen.py
 
 ### Web output on Windows
 
-```
+```bash
 type template.txt | xgengen.exe web > out.html
 start out.html
 ```
@@ -70,23 +70,23 @@ start out.html
 
 Lua target is capable of running the generated code by itself 
 
-```
+```bash
 echo 'Hello ExpressGenGen using :=> "{$$_VERSION$$}"' | xgengen lua
 ```
 or 
-```
+```bash
 echo 'Hello ExpressGenGen using :=> "{$$_VERSION$$}"' | xgengen
 ```
 (default is lua)
 
 ### Bash Piped Execution on `*nix`
 
-```
+```bash
 cat ./samples/lang_bash_CMakeLists.txt | xgengen bash | bash -
 ```
 
 ### Python Piped Execution on `*nix`
 
-```
+```bash
 cat /samples/lang_python_Hello.txt | xgengen python | python
 ```
